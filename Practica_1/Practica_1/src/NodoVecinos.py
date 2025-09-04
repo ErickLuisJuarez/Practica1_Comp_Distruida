@@ -22,4 +22,9 @@ class NodoVecinos(Nodo):
     def conoceVecinos(self, env):
         ''' Algoritmo que hace que el nodo conozca a los vecinos de sus vecinos.
             Lo guarda en la variable identifiers.'''
-     
+        self.canal_salida.envia(self.vecinos,self.vecinos)
+
+        while True  : # espera a que haya un mensjae en el canal 
+            mensaje  =  yield self.canal_entrada.get()  
+            self.identificadores.update(mensaje)
+            #print(self.toString()) #Mirar proceso de Ejecucion
