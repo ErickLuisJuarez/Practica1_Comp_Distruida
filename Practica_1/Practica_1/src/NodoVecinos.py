@@ -14,7 +14,10 @@ class NodoVecinos(Nodo):
         self.canal_entrada = canal_entrada
         self.canal_salida = canal_salida
         self.identifiers = set()
-    
+        
+    def get_id(self):
+        return self.id_nodo
+        
     def tostring(self):
         """Regresa la representacion en cadena del nodo."""
         return f"Nodo: {self.id_nodo}, vecinos: {self.vecinos},identificadores: {self.identifiers}"
