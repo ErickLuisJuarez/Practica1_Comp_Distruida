@@ -13,7 +13,7 @@ class NodoVecinos(Nodo):
         self.vecinos = vecinos
         self.canal_entrada = canal_entrada
         self.canal_salida = canal_salida
-        self.identificadores = set()
+        self.identifiers = set()
     
     def tostring(self):
         """Regresa la representacion en cadena del nodo."""
@@ -26,4 +26,4 @@ class NodoVecinos(Nodo):
 
         while True  : 
             mensaje  =  yield self.canal_entrada.get()  
-            self.identificadores.update(mensaje)
+            self.identifiers.update(mensaje)
