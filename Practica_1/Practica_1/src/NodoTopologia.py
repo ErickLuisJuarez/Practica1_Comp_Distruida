@@ -3,11 +3,6 @@ import time
 from Nodo import *
 from Canales.CanalBroadcast import *
 
-import simpy
-import time
-from Nodo import *
-from Canales.CanalBroadcast import *
-
 # La unidad de tiempo
 TICK = 1
 
@@ -43,13 +38,3 @@ class NodoTopologia(Nodo):
                     todos_conocidos = todos_conocidos and evaluador
                 if todos_conocidos:
                     break
-
-
-
-
-
-
-
-            
-    
-    

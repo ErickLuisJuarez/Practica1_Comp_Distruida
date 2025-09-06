@@ -24,7 +24,6 @@ class NodoVecinos(Nodo):
             Lo guarda en la variable identifiers.'''
         self.canal_salida.envia(self.vecinos,self.vecinos)
 
-        while True  : # espera a que haya un mensjae en el canal 
+        while True  : 
             mensaje  =  yield self.canal_entrada.get()  
             self.identificadores.update(mensaje)
-            #print(self.toString()) #Mirar proceso de Ejecucion
