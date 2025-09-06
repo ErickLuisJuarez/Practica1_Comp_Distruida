@@ -17,14 +17,17 @@ class NodoBroadcast(Nodo):
         self.canal_entrada = canal_entrada
         self.canal_salida = canal_salida
         self.mensaje = mensaje
-        self.seen_message =  False 
+        self.seen_message =  False
+
+    def get_id(self):
+        return self.id_nodo
 
     def broadcast(self, env):
         ''' Algoritmo de Broadcast. Desde el nodo distinguido (0)
             vamos a enviar un mensaje a todos los demás nodos.'''
         if self.id_nodo == 0:
             self.seen_message = True
-            self.mensaje = "Mensjae de Broadcast"
+            self.mensaje = "Mensaje de Broadcast"
             yield env.process(self.canal_salida.envia(self.mensaje, self.vecinos))
 
         while True:
