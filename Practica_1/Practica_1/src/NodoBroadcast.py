@@ -28,11 +28,11 @@ class NodoBroadcast(Nodo):
         if self.id_nodo == 0:
             self.seen_message = True
             self.mensaje = "Mensaje de Broadcast"
-            yield env.process(self.canal_salida.envia(self.mensaje, self.vecinos))
+            self.canal_salida.envia(self.mensaje, self.vecinos)
 
         while True:
             msg = yield self.canal_entrada.get()
             if not self.seen_message:
                 self.seen_message = True
                 self.mensaje = msg
-                yield env.process(self.canal_salida.envia(msg, self.vecinos))
+                self.canal_salida.envia(msg, self.vecinos)
