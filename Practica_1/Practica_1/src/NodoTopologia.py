@@ -19,6 +19,8 @@ class NodoTopologia(Nodo):
         self.procesos_conocidos = {self.id_nodo}
         self.canales_conocidos = {(self.id_nodo,y) for y in self.vecinos}
 
+    def get_id(self):
+        return self.id_nodo
 
     def topologia(self, env):
         self.canal_salida.envia((self.id_nodo,self.vecinos),self.vecinos)
